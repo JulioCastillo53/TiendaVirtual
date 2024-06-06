@@ -1,21 +1,12 @@
-public class Administrador extends Producto{
+public class Administrador extends Usuario{
 
     private String rol; // Rol del administrador
     private String permisos; // Permisos específicos del administrador
 
-    public Administrador(int id, String nombre, String descripcion, float precio, int stock, float descuento, String rol, String permisos) {
-        super(id, nombre, descripcion, precio, stock, descuento);
+    public Administrador(int id, String nombre, String correoElectronico, String contrasena, String direccion, String rol, String permisos) {
+        super(id, nombre, correoElectronico, contrasena, direccion);
         this.rol = rol;
         this.permisos = permisos;
-    }
-
-    // Getters y Setters
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 
     public String getPermisos() {
@@ -24,6 +15,14 @@ public class Administrador extends Producto{
 
     public void setPermisos(String permisos) {
         this.permisos = permisos;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     // Métodos adicionales específicos para administradores
