@@ -6,3 +6,6 @@ VERSION 2
 VERSION 3
 - Corrección de un error en la herencia de la Clase Administrador que heredaba de Producto y no de Usuario
 - Definición e instancia de Objetos desde el Main
+  
+VERSION 4
+- Polimorfismo desde las clases Producto, ProductoFisico y ProductoDigital por medio de sobrecarga de constructores
