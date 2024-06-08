@@ -13,6 +13,23 @@ public class ProductoFisico extends Producto{
         this.codigoBarras = codigoBarras;
     }
 
+    public ProductoFisico(int id) {
+        super(id);
+        this.peso = 0;
+        this.dimensiones = "10x10x10";
+        this.material = "metal";
+        this.codigoBarras = "yuetry-unknown";
+    }
+
+    public ProductoFisico(float precio, float descuento) {
+        super(precio, descuento);
+        this.peso = 0;
+        this.dimensiones = "80x80x80";
+        this.material = "metal";
+        this.codigoBarras = "yuetry-unknown";
+    }
+
+
     // Getters y Setters
     public float getPeso() {
         return peso;

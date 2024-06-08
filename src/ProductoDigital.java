@@ -13,6 +13,22 @@ public class ProductoDigital extends Producto{
         this.disponibleStreaming = disponibleStreaming;
     }
 
+    public ProductoDigital(int id) {
+        super(id);
+        this.formato = "UKN";
+        this.tamanoArchivo = 0;
+        this.urlDescarga = "/";
+        this.disponibleStreaming = false;
+    }
+
+    public ProductoDigital(float precio, float descuento) {
+        super(precio, descuento);
+        this.formato = "UKN";
+        this.tamanoArchivo = 2;
+        this.urlDescarga = "/";
+        this.disponibleStreaming = false;
+    }
+
     // Getters y Setters
     public String getFormato() {
         return formato;

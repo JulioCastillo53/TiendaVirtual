@@ -56,5 +56,20 @@ public class Main {
         System.out.println("Descripción: " + productoDigital.getDescripcion());
         System.out.println("Precio: " + productoDigital.getPrecio());
         System.out.println("Formato: " + productoDigital.getFormato());
+        System.out.println(" ");
+
+        Producto primero = new Producto(1);
+        Producto segundo = new Producto(500, 10);
+        Producto tercero = new Producto(2, "Televisor","50 pulgadas, OLED", 230.34f, 43, 12.4f);
+
+        ProductoDigital cuarto = new ProductoDigital(17);
+        ProductoFisico quinto = new ProductoFisico(7);
+
+        System.out.println(primero.getNombre());
+        System.out.println(segundo.getNombre());
+        System.out.println(tercero.getNombre());
+        System.out.println(cuarto.getFormato());
+        System.out.println(quinto.getDimensiones());
+
     }
 }

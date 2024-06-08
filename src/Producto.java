@@ -15,6 +15,24 @@ public class Producto {
         this.descuento = descuento;
     }
 
+    public Producto(float precio, float descuento){
+        this.id = 100;
+        this.nombre = "Temporal";
+        this.descripcion = "Producto temporal";
+        this.precio = precio;
+        this.stock = 1;
+        this.descuento = descuento;
+    }
+
+    public Producto(int id){
+        this.id = id;
+        this.nombre = "Temporal solo ID";
+        this.descripcion = "Producto temporal";
+        this.precio = 10.10f;
+        this.stock = 1;
+        this.descuento = 0;
+    }
+
     public float getDescuento() {
         return descuento;
     }
