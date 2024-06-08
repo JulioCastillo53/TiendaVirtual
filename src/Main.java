@@ -71,5 +71,10 @@ public class Main {
         System.out.println(cuarto.getFormato());
         System.out.println(quinto.getDimensiones());
 
+        ProductoDigital unproducto = new ProductoDigital(14);
+        ProductoFisico otroproducto = new ProductoFisico(14.23f,12f);
+        System.out.println("El precio final del producto digital es: " + unproducto.calcularPrecioFinal());
+        System.out.println("El precio final del producto físico es: " + otroproducto.calcularPrecioFinal());
+
     }
 }

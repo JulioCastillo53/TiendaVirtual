@@ -4,6 +4,7 @@ public class ProductoDigital extends Producto{
     private float tamanoArchivo; // Tamaño en MB
     private String urlDescarga;
     private boolean disponibleStreaming;
+    protected float comision = 12;
 
     public ProductoDigital(int id, String nombre, String descripcion, float precio, int stock, float descuento, String formato, float tamanoArchivo, String urlDescarga, boolean disponibleStreaming) {
         super(id, nombre, descripcion, precio, stock, descuento);
@@ -69,5 +70,10 @@ public class ProductoDigital extends Producto{
 
     public boolean esDisponibleParaStreaming() {
         return disponibleStreaming;
+    }
+
+    @Override
+    public float calcularPrecioFinal() {
+        return super.calcularPrecioFinal() + comision;
     }
 }

@@ -30,4 +30,5 @@ public class CarritoDeCompras {
     public void calcularTotal() {
         System.out.println("Total calculado: " + total);
     }
+
 }

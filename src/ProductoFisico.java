@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class ProductoFisico extends Producto{
 
     private float peso; // Peso del producto en kg
@@ -70,5 +72,25 @@ public class ProductoFisico extends Producto{
 
     public boolean tieneCodigoBarrasValido() {
         return codigoBarras != null && !codigoBarras.isEmpty();
+    }
+
+    @Override
+    public float calcularPrecioFinal() {
+        float sobrecostoxDimensiones = 0;
+        float sobrecostoxPeso = 1;
+        String[] partes = dimensiones.split("x");
+        int dimension1 = Integer.parseInt(partes[0]);
+        int dimension2 = Integer.parseInt(partes[1]);
+        int dimension3 = Integer.parseInt(partes[2]);
+        if(dimension1 + dimension2 + dimension3 > 200)
+        {
+            sobrecostoxDimensiones = 50;
+        }
+        if(peso>10 && peso<20){
+            sobrecostoxPeso = 15;
+        }else if (peso>50){
+            sobrecostoxPeso = peso/10 * 15;
+        }
+        return super.calcularPrecioFinal() + sobrecostoxDimensiones + sobrecostoxPeso;
     }
 }

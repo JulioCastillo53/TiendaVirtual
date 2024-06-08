@@ -100,4 +100,8 @@ public class Producto {
     public void aplicarDescuento() {
         System.out.println("Descuento aplicado");
     }
+
+    public float calcularPrecioFinal() {
+        return precio * descuento;
+    }
 }
