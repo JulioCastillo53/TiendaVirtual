@@ -14,3 +14,8 @@ VERSIÓN 3
 VERSIÓN 4
 - Polimorfismo desde las clases Producto, ProductoFísico y ProductoDigital por medio de sobrecarga de constructores
 - Polimorfismo completo, se añade sobrecarga de métodos de la clase ProductoDigital y ProductoFisico
+
+VERSION 5
+- Creación de la clase abstracta GestorDeInventario
+- Creación de las clases hijas InventarioFisico e InventarioDigital
+- Aplicación de controles para evitar valores negativos
