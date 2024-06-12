@@ -30,6 +30,14 @@ public class ProductoDigital extends Producto{
         this.disponibleStreaming = false;
     }
 
+    public ProductoDigital(int id, String nombre, float precio) {
+        super(id, nombre, precio);
+        this.formato = "FAC";
+        this.tamanoArchivo = 45;
+        this.urlDescarga = "/factory-product";
+        this.disponibleStreaming = true;
+    }
+
     // Getters y Setters
     public String getFormato() {
         return formato;

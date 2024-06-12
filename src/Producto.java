@@ -33,6 +33,15 @@ public class Producto {
         this.descuento = 0;
     }
 
+    public Producto(int id, String nombre, float precio){
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = "Producto sin descripción temporal";
+        this.precio = precio;
+        this.stock = 1;
+        this.descuento = 0;
+    }
+
     public float getDescuento() {
         return descuento;
     }
@@ -102,6 +111,6 @@ public class Producto {
     }
 
     public float calcularPrecioFinal() {
-        return precio * descuento;
+        return precio - descuento;
     }
 }

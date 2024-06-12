@@ -2,6 +2,19 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+        /*CLASES BASE*/
+        Usuario primerUsuario = new Usuario(8, "Pedro","pedro@hotmail.com", "1234123487",
+                "Autopista Norte Calle 24");
+        System.out.println(primerUsuario.toString()); //Imprime solo la dirección en memoria
+        System.out.println(primerUsuario.getId());
+        System.out.println(primerUsuario.getNombre());
+        System.out.println(primerUsuario.getCorreoElectronico());
+        System.out.println(primerUsuario.getContrasena());
+        System.out.println(primerUsuario.getDireccion());
+        System.out.println(" ");
+
+        /*HERENCIA*/
         // Crear instancia de Cliente
         Cliente cliente = new Cliente(
                 1, "Juan Perez", "juan.perez@example.com", "password123", "Calle Falsa 123",
@@ -58,23 +71,35 @@ public class Main {
         System.out.println("Formato: " + productoDigital.getFormato());
         System.out.println(" ");
 
+        /*POLIMORFISMO*/
+
+        //Sobrecarga de constructores
+        //Tres productos que reciben los 3 constructores de Producto
         Producto primero = new Producto(1);
         Producto segundo = new Producto(500, 10);
         Producto tercero = new Producto(2, "Televisor","50 pulgadas, OLED", 230.34f, 43, 12.4f);
 
+        ////Dos productos uno físico y digital
         ProductoDigital cuarto = new ProductoDigital(17);
         ProductoFisico quinto = new ProductoFisico(7);
 
+        //Imprimimos los datos de cada Producto
         System.out.println(primero.getNombre());
         System.out.println(segundo.getNombre());
         System.out.println(tercero.getNombre());
         System.out.println(cuarto.getFormato());
         System.out.println(quinto.getDimensiones());
 
+        //Sobrecarga de métodos
         ProductoDigital unproducto = new ProductoDigital(14);
-        ProductoFisico otroproducto = new ProductoFisico(14.23f,12f);
+        ProductoFisico otroproducto = new ProductoFisico(14.23f,8f);
+
         System.out.println("El precio final del producto digital es: " + unproducto.calcularPrecioFinal());
         System.out.println("El precio final del producto físico es: " + otroproducto.calcularPrecioFinal());
+
+        /* ENCAPSULAMIENTO */
+
+
 
     }
 }

@@ -26,7 +26,15 @@ public class ProductoFisico extends Producto{
     public ProductoFisico(float precio, float descuento) {
         super(precio, descuento);
         this.peso = 0;
-        this.dimensiones = "80x80x80";
+        this.dimensiones = "70x40x80";
+        this.material = "metal";
+        this.codigoBarras = "yuetry-unknown";
+    }
+
+    public ProductoFisico(int id, String nombre, float precio) {
+        super(id, nombre, precio);
+        this.peso = 0;
+        this.dimensiones = "70x40x80";
         this.material = "metal";
         this.codigoBarras = "yuetry-unknown";
     }
@@ -79,10 +87,10 @@ public class ProductoFisico extends Producto{
         float sobrecostoxDimensiones = 0;
         float sobrecostoxPeso = 1;
         String[] partes = dimensiones.split("x");
-        int dimension1 = Integer.parseInt(partes[0]);
-        int dimension2 = Integer.parseInt(partes[1]);
-        int dimension3 = Integer.parseInt(partes[2]);
-        if(dimension1 + dimension2 + dimension3 > 200)
+        int ancho = Integer.parseInt(partes[0]);
+        int largo = Integer.parseInt(partes[1]);
+        int alto = Integer.parseInt(partes[2]);
+        if(ancho + largo + alto > 200)
         {
             sobrecostoxDimensiones = 50;
         }
