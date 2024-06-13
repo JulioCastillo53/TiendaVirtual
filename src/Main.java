@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -157,6 +159,45 @@ public class Main {
 
         // Eliminar un producto del carrito
         carrito.eliminarProducto(producto2);
+
+        /* PATRONES */
+
+        Parametros configuracion = Parametros.getInstance();
+
+        // Obtener parámetros de conexión a la base de datos
+        Map<String, String> parametrosDB = configuracion.getParametrosConexionDB();
+        System.out.println("Parámetros de conexión a la base de datos: " + parametrosDB);
+
+        // Obtener parámetros de configuración de la interfaz de usuario
+        Map<String, String> parametrosUI = configuracion.getConfiguracionesUI();
+        System.out.println("Configuraciones de la interfaz de usuario: " + parametrosUI);
+
+        // Modificar un parámetro de conexión a la base de datos
+        configuracion.setParametrosConexionDB("host", "db.example.com");
+        System.out.println("Nuevo parámetro de conexión a la base de datos: " +
+                configuracion.getParametroDB("host"));
+
+        // Modificar un parámetro de configuración de la interfaz de usuario
+        configuracion.setConfiguracionesUI("tema", "lightMode");
+        System.out.println("Nuevo parámetro de configuración de la interfaz de usuario: " +
+                configuracion.getParametroUI("tema"));
+
+        // Usando la clase ProductoFactory
+        Map<String, String> parametrosProducto = new HashMap<>();
+        parametrosProducto.put("id", "1");
+        parametrosProducto.put("nombre", "Libro de Java");
+        parametrosProducto.put("precio", "29.99");
+
+        Producto productoDigitalFAC = FabricaProductos.crearProducto("digital", parametrosProducto);
+        System.out.println("Producto digital creado: " + productoDigitalFAC);
+
+        parametrosProducto.put("id", "2");
+        parametrosProducto.put("nombre", "Camisa");
+        parametrosProducto.put("precio", "19.99");
+
+        Producto productoFisicoFAC = FabricaProductos.crearProducto("físico", parametrosProducto);
+        System.out.println("Producto físico creado: " + productoFisicoFAC);
+
 
     }
 }
