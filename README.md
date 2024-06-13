@@ -33,3 +33,7 @@ VERSION 7
 VERSION 8
 - Implementación de validaciones en las clases base CarritoDeCompra, Producto y Usuario para evitar valores negativos.
 - Implementación de uso de las clases desde el Main ()
+
+VERSION 9
+- Implementación de los patrones de diseño Singleton en la clase Parámetros e implementación del patrón Factory desde la clase FabricaProductos.
+- Implementación en el Main de consultas para verificar el funcionamiento de los dos patrones.
