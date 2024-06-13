@@ -97,9 +97,35 @@ public class Main {
         System.out.println("El precio final del producto digital es: " + unproducto.calcularPrecioFinal());
         System.out.println("El precio final del producto físico es: " + otroproducto.calcularPrecioFinal());
 
-        /* ENCAPSULAMIENTO */
+        /* ABSTRACCIÓN */
 
+        InventarioFisico inventarioFisicoGeneral = new InventarioFisico(200);
+        InventarioDigital inventarioDigitalGeneral = new InventarioDigital(740);
 
+        System.out.println(inventarioFisicoGeneral.getCantidad());
+        System.out.println(inventarioDigitalGeneral.getCantidad());
+
+        SistemaDePago pagoPayPal = new PagoPayPal();
+        SistemaDePago pagoTarjetaCredito = new PagoTarjetaCredito();
+        SistemaDePago pagoBancario = new PagoBancario();
+
+        // Realizar operaciones con PayPal
+        System.out.println("Proceso de pago con PayPal:");
+        pagoPayPal.iniciarPago();
+        pagoPayPal.verificarPago();
+        pagoPayPal.confirmarPago();
+        System.out.println();
+        // Realizar operaciones con tarjeta de crédito
+        System.out.println("Proceso de pago con Tarjeta de Crédito:");
+        pagoTarjetaCredito.iniciarPago();
+        pagoTarjetaCredito.verificarPago();
+        pagoTarjetaCredito.confirmarPago();
+        System.out.println();
+        // Realizar operaciones con pago bancario
+        System.out.println("Proceso de pago Bancario:");
+        pagoBancario.iniciarPago();
+        pagoBancario.verificarPago();
+        pagoBancario.confirmarPago();
 
     }
 }
