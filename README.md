@@ -28,4 +28,8 @@ VERSION 6
 
 VERSION 7
 - Implementación de los métodos de obtención y asignación a atributos de clases encapsuladas.
-- Implementación de atributos privados en las clases base CarritoDeCompras, Producto y Usuario
+- Implementación de atributos privados en las clases base CarritoDeCompras, Producto y Usuario ()
+
+VERSION 8
+- Implementación de validaciones en las clases base CarritoDeCompra, Producto y Usuario para evitar valores negativos.
+- Implementación de uso de las clases desde el Main ()
