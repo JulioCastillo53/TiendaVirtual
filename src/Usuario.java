@@ -7,11 +7,11 @@ public class Usuario {
     private String direccion;
 
     public Usuario(int id, String nombre, String correoElectronico, String contrasena, String direccion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
-        this.contrasena = contrasena;
-        this.direccion = direccion;
+        setId(id);
+        setNombre(nombre);
+        setCorreoElectronico(correoElectronico);
+        setContrasena(contrasena);
+        setDireccion(direccion);
     }
 
     public int getId() {
@@ -19,6 +19,9 @@ public class Usuario {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("El ID debe ser mayor que cero.");
+        }
         this.id = id;
     }
 
@@ -27,6 +30,9 @@ public class Usuario {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -35,6 +41,9 @@ public class Usuario {
     }
 
     public void setCorreoElectronico(String correoElectronico) {
+        if (correoElectronico == null || !correoElectronico.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            throw new IllegalArgumentException("El correo electrónico no es válido.");
+        }
         this.correoElectronico = correoElectronico;
     }
 
@@ -43,6 +52,9 @@ public class Usuario {
     }
 
     public void setContrasena(String contrasena) {
+        if (contrasena == null || contrasena.length() < 6) {
+            throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
+        }
         this.contrasena = contrasena;
     }
 
@@ -51,6 +63,9 @@ public class Usuario {
     }
 
     public void setDireccion(String direccion) {
+        if (direccion == null || direccion.trim().isEmpty()) {
+            throw new IllegalArgumentException("La dirección no puede estar vacía.");
+        }
         this.direccion = direccion;
     }
 

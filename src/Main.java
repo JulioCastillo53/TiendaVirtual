@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -126,6 +129,34 @@ public class Main {
         pagoBancario.iniciarPago();
         pagoBancario.verificarPago();
         pagoBancario.confirmarPago();
+
+        /* ENCAPSULAMIENTO */
+
+        Usuario usuario = new Usuario(1, "Juan", "juan@example.com", "contrasena123", "Calle Principal 123");
+
+        // Crear productos
+        Producto producto1 = new Producto(1, "Camisa", "Camisa de algodón", 25.0f, 10, 5.0f);
+        Producto producto2 = new Producto(2, "Pantalón", "Pantalón de mezclilla", 35.0f, 8, 0.0f);
+
+        // Crear un carrito de compras
+        List<Producto> productosCarrito = new ArrayList<>();
+        productosCarrito.add(producto1);
+        productosCarrito.add(producto2);
+        CarritoDeCompras carrito = new CarritoDeCompras(1, usuario, productosCarrito);
+
+        // Agregar un producto al carrito
+        Producto nuevoProducto = new Producto(3, "Zapatos", "Zapatos de cuero", 50.0f, 5, 0.0f);
+        carrito.agregarProducto(nuevoProducto);
+
+        // Calcular el total del carrito
+        carrito.calcularTotal();
+
+        // Actualizar la cantidad de un producto en el carrito
+        producto1.setStock(9);
+        carrito.actualizarCantidad();
+
+        // Eliminar un producto del carrito
+        carrito.eliminarProducto(producto2);
 
     }
 }

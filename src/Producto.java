@@ -7,39 +7,39 @@ public class Producto {
     private float descuento;
 
     public Producto(int id, String nombre, String descripcion, float precio, int stock, float descuento) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stock = stock;
-        this.descuento = descuento;
+        setId(id);
+        setNombre(nombre);
+        setDescripcion(descripcion);
+        setPrecio(precio);
+        setStock(stock);
+        setDescuento(descuento);
     }
 
-    public Producto(float precio, float descuento){
-        this.id = 100;
-        this.nombre = "Temporal";
-        this.descripcion = "Producto temporal";
-        this.precio = precio;
-        this.stock = 1;
-        this.descuento = descuento;
+    public Producto(float precio, float descuento) {
+        setId(100);
+        setNombre("Temporal");
+        setDescripcion("Producto temporal");
+        setPrecio(precio);
+        setStock(1);
+        setDescuento(descuento);
     }
 
-    public Producto(int id){
-        this.id = id;
-        this.nombre = "Temporal solo ID";
-        this.descripcion = "Producto temporal";
-        this.precio = 10.10f;
-        this.stock = 1;
-        this.descuento = 0;
+    public Producto(int id) {
+        setId(id);
+        setNombre("Temporal solo ID");
+        setDescripcion("Producto temporal");
+        setPrecio(10.10f);
+        setStock(1);
+        setDescuento(0);
     }
 
-    public Producto(int id, String nombre, float precio){
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = "Producto sin descripción temporal";
-        this.precio = precio;
-        this.stock = 1;
-        this.descuento = 0;
+    public Producto(int id, String nombre, float precio) {
+        setId(id);
+        setNombre(nombre);
+        setDescripcion("Producto sin descripción temporal");
+        setPrecio(precio);
+        setStock(1);
+        setDescuento(0);
     }
 
     public float getDescuento() {
@@ -47,6 +47,9 @@ public class Producto {
     }
 
     public void setDescuento(float descuento) {
+        if (descuento < 0) {
+            throw new IllegalArgumentException("El descuento no puede ser negativo.");
+        }
         this.descuento = descuento;
     }
 
@@ -55,6 +58,9 @@ public class Producto {
     }
 
     public void setStock(int stock) {
+        if (stock < 0) {
+            throw new IllegalArgumentException("El stock no puede ser negativo.");
+        }
         this.stock = stock;
     }
 
@@ -63,6 +69,9 @@ public class Producto {
     }
 
     public void setPrecio(float precio) {
+        if (precio < 0) {
+            throw new IllegalArgumentException("El precio no puede ser negativo.");
+        }
         this.precio = precio;
     }
 
@@ -71,6 +80,9 @@ public class Producto {
     }
 
     public void setDescripcion(String descripcion) {
+        if (descripcion == null || descripcion.trim().isEmpty()) {
+            throw new IllegalArgumentException("La descripción no puede estar vacía.");
+        }
         this.descripcion = descripcion;
     }
 
@@ -79,6 +91,9 @@ public class Producto {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -87,6 +102,9 @@ public class Producto {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("El ID debe ser mayor que cero.");
+        }
         this.id = id;
     }
 
