@@ -14,12 +14,10 @@ public class CarritoDeCompras {
     }
 
     public void agregarProducto(Producto producto) {
-
         System.out.println("Producto agregado al carrito");
     }
 
     public void eliminarProducto(Producto producto) {
-
         System.out.println("Producto eliminado del carrito");
     }
 
@@ -30,5 +28,4 @@ public class CarritoDeCompras {
     public void calcularTotal() {
         System.out.println("Total calculado: " + total);
     }
-
 }
