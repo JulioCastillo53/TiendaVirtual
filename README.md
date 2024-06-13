@@ -18,9 +18,14 @@ VERSIÓN 4
 VERSION 5
 - Creación de la clase abstracta GestorDeInventario
 - Creación de las clases hijas InventarioFisico e InventarioDigital
-- Aplicación de controles para evitar valores negativos
+- Aplicación de controles para evitar valores nega- Implementación de los métodos de obtención y asignación a atributos de clases encapsuladas.
+- Implementación de atributos privados en las clases base CarritoDeCompras, Producto y Usuario7tivos
 
 VERSION 6
 - Implementación de la clase abstracta Sistema de Pagos
 - Implementación de las clases hijas: Pago con PayPal, Bancario y Tarjeta de Crédito
 - Implementación de uso desde el Main
+
+VERSION 7
+- Implementación de los métodos de obtención y asignación a atributos de clases encapsuladas.
+- Implementación de atributos privados en las clases base CarritoDeCompras, Producto y Usuario
