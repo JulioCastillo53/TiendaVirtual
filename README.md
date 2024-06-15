@@ -42,3 +42,7 @@ Version 10
 - Implementación de la clase Observer Resena
 - Implementación de la clase Observador ResenaObserver
 - Implementación de operaciones en el Main para verificar comportamiento
+
+Version 11
+- Creación de excepciones en el Carrito de Compras, implementando las clases de excepciones personalizadas para CarritoDeComprasException, CalculoTotalException, ProductoNoEncontradoException y ProductoNuloException.
+- Implementación de try / catch en el Main para su correcto funcionamiento
