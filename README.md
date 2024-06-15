@@ -46,3 +46,7 @@ Version 10
 Version 11
 - Creación de excepciones en el Carrito de Compras, implementando las clases de excepciones personalizadas para CarritoDeComprasException, CalculoTotalException, ProductoNoEncontradoException y ProductoNuloException.
 - Implementación de try / catch en el Main para su correcto funcionamiento
+
+Version 12
+- Implementación JUnit4 para pruebas, creación de carpeta test, creación del Test para el Carrito de Compra, usando de manera coherente las excepciones implementadas anteriormente.
+- Creación del Diagrama de clases e integración con el proyecto
