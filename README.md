@@ -37,3 +37,8 @@ VERSION 8
 VERSION 9
 - Implementación de los patrones de diseño Singleton en la clase Parámetros e implementación del patrón Factory desde la clase FabricaProductos.
 - Implementación en el Main de consultas para verificar el funcionamiento de los dos patrones.
+
+Version 10
+- Implementación de la clase Observer Resena
+- Implementación de la clase Observador ResenaObserver
+- Implementación de operaciones en el Main para verificar comportamiento
