@@ -6,28 +6,31 @@ public class CarritoDeCompras {
     private List<Producto> productos;
     private float total;
 
-    public CarritoDeCompras(int id, Usuario usuario, List<Producto> productos) {
+    public CarritoDeCompras(int id, Usuario usuario, List<Producto> productos) throws ProductoNuloException {
         setId(id);
         setUsuario(usuario);
         setProductos(productos);
         this.total = 0.0f;
     }
 
-    public void agregarProducto(Producto producto) {
+    public void agregarProducto(Producto producto) throws ProductoNuloException {
         if (producto != null) {
             productos.add(producto);
             System.out.println("Producto agregado al carrito");
         } else {
-            System.out.println("No se puede agregar un producto nulo al carrito");
+            throw new ProductoNuloException();
         }
     }
 
-    public void eliminarProducto(Producto producto) {
-        if (producto != null && productos.contains(producto)) {
+    public void eliminarProducto(Producto producto) throws ProductoNoEncontradoException, ProductoNuloException {
+        if (producto == null) {
+            throw new ProductoNuloException();
+        }
+        if (productos.contains(producto)) {
             productos.remove(producto);
             System.out.println("Producto eliminado del carrito");
         } else {
-            System.out.println("El producto no está en el carrito");
+            throw new ProductoNoEncontradoException();
         }
     }
 
@@ -35,13 +38,17 @@ public class CarritoDeCompras {
         System.out.println("Cantidad de producto actualizada");
     }
 
-    public void calcularTotal() {
-        float sumaTotal = 0.0f;
-        for (Producto producto : productos) {
-            sumaTotal += producto.getPrecio();
+    public void calcularTotal() throws CalculoTotalException {
+        try {
+            float sumaTotal = 0.0f;
+            for (Producto producto : productos) {
+                sumaTotal += producto.getPrecio();
+            }
+            total = sumaTotal;
+            System.out.println("Total calculado: " + total);
+        } catch (Exception e) {
+            throw new CalculoTotalException("Error al calcular el total del carrito");
         }
-        total = sumaTotal;
-        System.out.println("Total calculado: " + total);
     }
 
     public int getId() {
@@ -64,7 +71,10 @@ public class CarritoDeCompras {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<Producto> productos) throws ProductoNuloException {
+        if (productos == null) {
+            throw new ProductoNuloException();
+        }
         this.productos = productos;
     }
 
@@ -76,4 +86,3 @@ public class CarritoDeCompras {
         this.total = total;
     }
 }
-

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -9,7 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         /*CLASES BASE*/
-        Usuario primerUsuario = new Usuario(8, "Pedro","pedro@hotmail.com", "1234123487",
+        System.out.println("\nCLASES BASE--------------------------------------------\n");
+
+        Usuario primerUsuario = new Usuario(8, "Pedro", "pedro@hotmail.com", "1234123487",
                 "Autopista Norte Calle 24");
         System.out.println(primerUsuario.toString()); //Imprime solo la dirección en memoria
         System.out.println(primerUsuario.getId());
@@ -20,6 +19,9 @@ public class Main {
         System.out.println(" ");
 
         /*HERENCIA*/
+
+        System.out.println("\nHERENCIA--------------------------------------------\n");
+
         // Crear instancia de Cliente
         Cliente cliente = new Cliente(
                 1, "Juan Perez", "juan.perez@example.com", "password123", "Calle Falsa 123",
@@ -50,7 +52,7 @@ public class Main {
         // Crear instancia de ProductoFisico
         ProductoFisico productoFisico = new ProductoFisico(
                 1, "Laptop", "Laptop de alta gama", 1500.0f, 10, 0.1f,
-                5.0f, "12x17x45", "metal","q-rtGYEww-Xxiuser-374580-modellerxy"
+                5.0f, "12x17x45", "metal", "q-rtGYEww-Xxiuser-374580-modellerxy"
         );
 
         // Mostrar información del producto físico
@@ -64,8 +66,8 @@ public class Main {
         // Crear instancia de ProductoDigital
         ProductoDigital productoDigital = new ProductoDigital(
                 2, "E-book", "Libro electrónico de programación",
-                30.0f, 100, 0.2f, "PDF",1024.0f,
-                "biblioteca/libros/tecnologia/poo.pdf",true
+                30.0f, 100, 0.2f, "PDF", 1024.0f,
+                "biblioteca/libros/tecnologia/poo.pdf", true
         );
 
         // Mostrar información del producto digital
@@ -77,12 +79,13 @@ public class Main {
         System.out.println(" ");
 
         /*POLIMORFISMO*/
+        System.out.println("\nPOLIMORFISMO--------------------------------------------\n");
 
         //Sobrecarga de constructores
         //Tres productos que reciben los 3 constructores de Producto
         Producto primero = new Producto(1);
         Producto segundo = new Producto(500, 10);
-        Producto tercero = new Producto(2, "Televisor","50 pulgadas, OLED", 230.34f, 43, 12.4f);
+        Producto tercero = new Producto(2, "Televisor", "50 pulgadas, OLED", 230.34f, 43, 12.4f);
 
         ////Dos productos uno físico y digital
         ProductoDigital cuarto = new ProductoDigital(17);
@@ -97,12 +100,13 @@ public class Main {
 
         //Sobrecarga de métodos
         ProductoDigital unproducto = new ProductoDigital(14);
-        ProductoFisico otroproducto = new ProductoFisico(14.23f,8f);
+        ProductoFisico otroproducto = new ProductoFisico(14.23f, 8f);
 
         System.out.println("El precio final del producto digital es: " + unproducto.calcularPrecioFinal());
         System.out.println("El precio final del producto físico es: " + otroproducto.calcularPrecioFinal());
 
         /* ABSTRACCIÓN */
+        System.out.println("\nABSTRACCIÓN--------------------------------------------\n");
 
         InventarioFisico inventarioFisicoGeneral = new InventarioFisico(200);
         InventarioDigital inventarioDigitalGeneral = new InventarioDigital(740);
@@ -133,6 +137,7 @@ public class Main {
         pagoBancario.confirmarPago();
 
         /* ENCAPSULAMIENTO */
+        System.out.println("\nENCAPSULAMIENTO--------------------------------------------\n");
 
         Usuario usuario = new Usuario(1, "Juan", "juan@example.com", "contrasena123", "Calle Principal 123");
 
@@ -144,23 +149,43 @@ public class Main {
         List<Producto> productosCarrito = new ArrayList<>();
         productosCarrito.add(producto1);
         productosCarrito.add(producto2);
-        CarritoDeCompras carrito = new CarritoDeCompras(1, usuario, productosCarrito);
+        CarritoDeCompras carrito = null;
+        try {
+            carrito = new CarritoDeCompras(1, usuario, productosCarrito);
+        } catch (ProductoNuloException e) {
+            throw new RuntimeException(e);
+        }
 
         // Agregar un producto al carrito
         Producto nuevoProducto = new Producto(3, "Zapatos", "Zapatos de cuero", 50.0f, 5, 0.0f);
-        carrito.agregarProducto(nuevoProducto);
+        try {
+            carrito.agregarProducto(nuevoProducto);
+        } catch (ProductoNuloException e) {
+            throw new RuntimeException(e);
+        }
 
         // Calcular el total del carrito
-        carrito.calcularTotal();
+        try {
+            carrito.calcularTotal();
+        } catch (CalculoTotalException e) {
+            throw new RuntimeException(e);
+        }
 
         // Actualizar la cantidad de un producto en el carrito
         producto1.setStock(9);
         carrito.actualizarCantidad();
 
         // Eliminar un producto del carrito
-        carrito.eliminarProducto(producto2);
+        try {
+            carrito.eliminarProducto(producto2);
+        } catch (ProductoNoEncontradoException e) {
+            throw new RuntimeException(e);
+        } catch (ProductoNuloException e) {
+            throw new RuntimeException(e);
+        }
 
         /* PATRONES */
+        System.out.println("\nPATRONES--------------------------------------------\n");
 
         Parametros configuracion = Parametros.getInstance();
 
@@ -189,15 +214,48 @@ public class Main {
         parametrosProducto.put("precio", "29.99");
 
         Producto productoDigitalFAC = FabricaProductos.crearProducto("digital", parametrosProducto);
-        System.out.println("Producto digital creado: " + productoDigitalFAC);
+        System.out.println("Producto físico creado: \n Objeto: " + productoDigitalFAC + "{id: " + productoDigitalFAC.getId() + ", Nombre: " + productoDigitalFAC.getNombre() + ", Precio: " + productoDigitalFAC.getPrecio() + "}");
 
         parametrosProducto.put("id", "2");
         parametrosProducto.put("nombre", "Camisa");
         parametrosProducto.put("precio", "19.99");
 
         Producto productoFisicoFAC = FabricaProductos.crearProducto("físico", parametrosProducto);
-        System.out.println("Producto físico creado: " + productoFisicoFAC);
+        System.out.println("Producto físico creado: \n Objeto: " + productoFisicoFAC + "{id: " + productoFisicoFAC.getId() + ", Nombre: " + productoFisicoFAC.getNombre() + ", Precio: " + productoFisicoFAC.getPrecio() + "}");
 
+        System.out.println("\nPATRÓN OBSERVER--------------------------------------------\n");
+
+        Cliente clienteOB = new Cliente(1, "Juan Perez", "juan.perez@example.com", "password123", "123 Calle Falsa", "Tarjeta de Crédito", "555-1234");
+
+        // Crear una instancia de ProductoDigital
+        ProductoDigital producto = new ProductoDigital(
+                1,
+                "Curso de Java Avanzado",
+                "Curso completo de Java para desarrolladores avanzados",
+                49.99f,
+                100,
+                10.0f,
+                "MP4",
+                1500.0f,
+                "http://example.com/download/java-avanzado",
+                true
+        );
+
+        // Crear una instancia de Resena
+        Resena resena = new Resena(1, clienteOB, producto, 5, "Excelente curso, muy completo y bien explicado.", new Date());
+        ResenaObserver observer = new ResenaObserver();
+
+        // Registrar el observador
+        resena.addObserver(observer);
+
+        // Realizar acciones en la reseña
+        resena.agregarResena();
+        resena.editarResena();
+        resena.eliminarResena();
+        resena.moderarResena();
+
+        // Actualizar propiedades de la reseña
+        resena.setComentario("Comentario actualizado");
 
     }
 }

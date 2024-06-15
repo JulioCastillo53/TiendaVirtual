@@ -12,6 +12,7 @@ public class Parametros {
     private static final String DEFAULT_UI_LANGUAGE = "español";
 
     private static Parametros instance;
+
     private final Map<String,String> parametrosConexionDB;
     private final Map<String,String> configuracionesUI;
 
@@ -53,7 +54,7 @@ public class Parametros {
 
     public String setParametrosConexionDB(String parametro, String valor) {
         if (parametrosConexionDB.containsKey(parametro)) {
-            parametrosConexionDB.put(parametro, valor);
+            parametrosConexionDB.replace(parametro, valor);
             return "Parámetro " + parametro + " fue modificado exitosamente.";
         } else {
             return "null";
@@ -62,7 +63,7 @@ public class Parametros {
 
     public String setConfiguracionesUI(String parametro, String valor) {
         if (configuracionesUI.containsKey(parametro)) {
-            configuracionesUI.put(parametro, valor);
+            configuracionesUI.replace(parametro, valor);
             return "Parámetro " + parametro + " fue modificado exitosamente.";
         } else {
             return "null";
